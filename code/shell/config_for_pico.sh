@@ -10,8 +10,7 @@ set -e
 echo '--- update'
 apt-get update
 echo '--- install some packages'
-apt-get install -y python-dev python-pip python-serial python-smbus python-jinja2 wiringpi
-
+apt-get install -y git python-dev python-pip python-serial python-smbus python-jinja2 python-xmltodict python-psutil python-rpi.gpio i2c-tools libi2c-dev
 echo '--- pip install psutil'
 pip install psutil
 
@@ -19,7 +18,7 @@ echo '--- pip install xmltodict'
 pip install xmltodict
 
 echo '--- installing & enabling daemon'
-cd PiModules/code/python/package
+cd ~/PiModules/code/python/package
 python setup.py install
 cd ../upspico/picofssd
 python setup.py install
@@ -37,3 +36,5 @@ apt-get -y remove fake-hwclock && sudo update-rc.d -f fake-hwclock remove
 
 echo '--- all done'
 exit 0
+
+#https://www.raspberrypi.org/forums/viewtopic.php?p=770339#p770339
