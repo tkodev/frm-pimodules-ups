@@ -9,6 +9,16 @@ set -e
 
 echo '--- update'
 apt-get update
+
+echo '--- upgrade'
+apt-get upgrade -y
+
+echo '--- dist-upgrade'
+apt-get dist-upgrade -y
+
+echo '--- rpi-update'
+rpi-update
+
 echo '--- install some packages'
 apt-get install -y git python-dev python-pip python-serial python-smbus python-jinja2 python-xmltodict python-psutil i2c-tools libi2c-dev
 
@@ -20,13 +30,6 @@ pip install psutil
 
 echo '--- pip install xmltodict'
 pip install xmltodict
-
-echo '--- installing & enabling daemon'
-cd PiModules/code/python/package
-python setup.py install
-cd ../upspico/picofssd
-python setup.py install
-systemctl enable picofssd.service
 
 echo '--- adding line to config.txt'
 if [ "$(grep -c "^dtoverlay=i2c-rtc,ds1307" /boot/config.txt)" -eq 0 ]; then
@@ -55,6 +58,13 @@ fi
 
 echo '--- removing fake-hwclock'
 apt-get -y remove fake-hwclock && sudo update-rc.d -f fake-hwclock remove
+
+echo '--- installing & enabling daemon'
+cd PiModules/code/python/package
+python setup.py install
+cd ../upspico/picofssd
+python setup.py install
+systemctl enable picofssd.service
 
 echo '--- all done'
 exit 0
