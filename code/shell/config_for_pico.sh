@@ -10,7 +10,11 @@ set -e
 echo '--- update'
 apt-get update
 echo '--- install some packages'
-apt-get install -y git python-dev python-pip python-serial python-smbus python-jinja2 python-xmltodict python-psutil python-rpi.gpio i2c-tools libi2c-dev
+apt-get install -y git python-dev python-pip python-serial python-smbus python-jinja2 python-xmltodict python-psutil i2c-tools libi2c-dev
+
+echo '--- pip install rpi.gpio'
+sudo pip install RPi.GPIO
+
 echo '--- pip install psutil'
 pip install psutil
 
