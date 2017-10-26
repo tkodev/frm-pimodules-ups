@@ -49,6 +49,9 @@ if [ "$(grep -c "^dtparam=i2c1=on" /boot/config.txt)" -eq 0 ]; then
 fi
 
 echo '--- adding lines to /etc/modules'
+if [ "$(grep -c "^i2c-dev" /etc/modules)" -eq 0 ]; then
+  echo -e "\ni2c-dev\n" >> /etc/modules
+fi
 if [ "$(grep -c "^i2c-bcm2708" /etc/modules)" -eq 0 ]; then
   echo -e "\ni2c-bcm2708\n" >> /etc/modules
 fi
