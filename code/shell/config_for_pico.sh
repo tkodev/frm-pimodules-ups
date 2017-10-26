@@ -22,7 +22,7 @@ echo '--- pip install xmltodict'
 pip install xmltodict
 
 echo '--- installing & enabling daemon'
-cd ~/PiModules/code/python/package
+cd PiModules/code/python/package
 python setup.py install
 cd ../upspico/picofssd
 python setup.py install
