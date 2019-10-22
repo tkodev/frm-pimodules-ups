@@ -6,7 +6,8 @@ This repository contains software and other files supporting PiModules(R) UPS PI
 ## Setup Steps
 1. Enable `i2c`, setup `pi` user password, use proper timezone & wifi locale via `sudo raspi-config`
 2. SSH into your raspberry pi with UPS pico installed.
-3. Run `(cd ./shell_scripts/ && ./setup_pico.sh)` to update RPI, config i2c on system, install prerequisite software, hardware RTC, etc
+3. Run `(cd ./shell_scripts/ && ./setup_dependencies.sh)` to update RPI os, install prerequisite software, etc
+3. Run `(cd ./shell_scripts/ && ./setup_pico.sh)` to config RPI serial port, i2c on system, hardware RTC, etc
 4. Run `sudo reboot` to ensure daemon / drivers are running, etc
 5. Run `(cd ./shell_scripts/ && ./setup_firmware.sh)` to prep system for firmware update
 6. Run `sudo reboot` to fresh restart
