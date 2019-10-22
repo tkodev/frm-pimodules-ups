@@ -1,34 +1,16 @@
 
-PiModules(R) Product Support Software and Related Files
-=======================================================
+# PiModules(R) Product Support Software and Related Files
 
-This repository contains software and other files supporting PiModules(R) products.
+This repository contains software and other files supporting PiModules(R) UPS PIco HV3.0A.
 
-Contents
---------
+## Steps
+1. Browse `./doc/` for latest prospectus, manuals, etc.
+2. SSH into your raspberry pi with UPS pico installed.
+3. Run `(cd ./shell_scripts/ && ./setup_pico.sh)` to update RPI, config i2c on system, install prerequisite software, hardware RTC, etc
+4. Run `sudo reboot` to ensure daemon / drivers are running, etc
+5. Run `(cd ./shell_scripts/ && ./setup_firmware.sh)` to prep system for firmware update
+6. Run `sudo reboot` to ensure daemon / drivers are running, etc
 
-* Code/
-
-Code files and related stuff.
-
-* doc/
-
-Documentation
-
-* pico_status
-
-PIco Status Script - Script to show you some statistics pulled from your UPS PIco HV3.0A.
-
-* temp_fan
-
-Temperature Based Fan Script - Script to automatically change the fan speed based on the temperature of the TO92 sensor.
-
-* LICENSE
-
-Text of the Gnu General Public License version 3.
-
-* README.md
-
-This file
-
-
+## Extra Scripts
+- run `(cd ./pico_status/ && sudo python ./pico_status.py)` - Script to show you some statistics pulled from your UPS PIco HV3.0A.
+- run `(cd ./temp_fan/ && sudo python ./pico_HV3.0_temp_fan_v1.0.py)` - Script to automatically change the fan speed based on the temperature of the TO92 sensor.
