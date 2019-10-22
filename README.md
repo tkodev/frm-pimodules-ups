@@ -4,7 +4,7 @@
 This repository contains software and other files supporting PiModules(R) UPS PIco HV3.0A.
 
 ## Setup Steps
-1. Enable `i2c`, use proper timezone & wifi locale via `sudo raspi-config`
+1. Enable `i2c`, setup `pi` user password, use proper timezone & wifi locale via `sudo raspi-config`
 2. SSH into your raspberry pi with UPS pico installed.
 3. Run `(cd ./shell_scripts/ && ./setup_pico.sh)` to update RPI, config i2c on system, install prerequisite software, hardware RTC, etc
 4. Run `sudo reboot` to ensure daemon / drivers are running, etc
