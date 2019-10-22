@@ -7,7 +7,7 @@
 # main
 	echo '--- save and edit cmdline.txt'
 	sudo rm /boot/cmdline.txt
-	sudo cp /boot/cmdline.txt.save /boot/cmdline.txt
+	sudo cp /boot/cmdline.txt.pre_fw /boot/cmdline.txt
 	echo '--- adding line to config.txt'
 	sudo sed -i 's|dtparam=pi3-disable-bt|#dtparam=pi3-disable-bt|' /boot/config.txt
 	echo '--- enabling hciuart'

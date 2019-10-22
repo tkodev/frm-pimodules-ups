@@ -25,6 +25,7 @@
   echo '--- pip install xmltodict'
   sudo pip install xmltodict
   echo '--- adding line to config.txt'
+	sudo cp /boot/cmdline.txt /boot/cmdline.txt.orig
   if [ "$(grep -c "^dtoverlay=i2c-rtc,ds1307" /boot/config.txt)" -eq 0 ]; then
     echo -e "\ndtoverlay=i2c-rtc,ds1307\n" | sudo tee -a /boot/config.txt
   fi
@@ -37,6 +38,7 @@
   if [ "$(grep -c "^dtparam=i2c1=on" /boot/config.txt)" -eq 0 ]; then
     echo -e "\ndtparam=i2c1=on\n" | sudo tee -a /boot/config.txt
   fi
+	sudo cp /etc/modules /etc/modules.orig
   echo '--- adding lines to /etc/modules'
   if [ "$(grep -c "^i2c-dev" /etc/modules)" -eq 0 ]; then
     echo -e "\ni2c-dev\n" | sudo tee -a /etc/modules

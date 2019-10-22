@@ -6,7 +6,7 @@
 
 # main
 	echo '--- save and edit cmdline.txt'
-	sudo cp /boot/cmdline.txt /boot/cmdline.txt.save
+	sudo cp /boot/cmdline.txt /boot/cmdline.txt.pre_fw
 	sudo sed -i 's| console=ttyAMA0,115200||' /boot/cmdline.txt
 	sudo sed -i 's| console=serial0,115200||' /boot/cmdline.txt
 	echo '--- adding line to config.txt'
