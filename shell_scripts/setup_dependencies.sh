@@ -21,3 +21,6 @@
   sudo pip install psutil
   echo '--- pip install xmltodict'
   sudo pip install xmltodict
+  echo '--- all done, rebooting'
+  sudo reboot
+  exit 0

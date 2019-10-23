@@ -9,7 +9,9 @@ This repository contains software and other files supporting PiModules(R) UPS PI
 3. Run `(cd ./shell_scripts/ && ./setup_dependencies.sh)` to update RPI os, install prerequisite software, etc
 3. Run `(cd ./shell_scripts/ && ./setup_pico.sh)` to config RPI serial port, i2c on system, hardware RTC, etc
 4. Run `sudo reboot` to ensure daemon / drivers are running, etc
-5. Run `(cd ./shell_scripts/ && ./setup_firmware.sh)` to prep system for firmware update
+5. Run `(cd ./shell_scripts/ && ./firmware_update_pre.sh)` to prep system for firmware update
+5. Run `(cd ./shell_scripts/ && ./firmware_update_main.sh)` to update firmware
+5. Run `(cd ./shell_scripts/ && ./firmware_update_post.sh)` to revert system
 6. Run `sudo reboot` to fresh restart
 
 ## Extra Scripts
