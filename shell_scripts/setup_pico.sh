@@ -34,7 +34,7 @@
     echo -e "\nrtc-ds1307\n" | sudo tee -a /etc/modules
   fi
   echo '--- removing fake-hwclock'
-  apt-get -y remove fake-hwclock && sudo update-rc.d -f fake-hwclock remove
+  sudo apt-get -y remove fake-hwclock && sudo update-rc.d -f fake-hwclock remove
   echo '--- installing & enabling daemon'
   (cd ../code/python/package && sudo python setup.py install)
   (cd ../code/python/upspico/picofssd && sudo python setup.py install)
