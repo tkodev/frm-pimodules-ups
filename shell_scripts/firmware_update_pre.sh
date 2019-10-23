@@ -10,6 +10,7 @@
 	sudo sed -i 's| console=ttyAMA0,115200||' /boot/cmdline.txt
 	sudo sed -i 's| console=serial0,115200||' /boot/cmdline.txt
 	echo '--- adding line to config.txt'
+	sudo cp /boot/config.txt /boot/config.txt.pre_fw
 	echo -e "\n\ndtparam=pi3-disable-bt\n\n" | sudo tee -a /boot/config.txt
 	echo '--- disabling hciuart'
 	sudo systemctl disable hciuart

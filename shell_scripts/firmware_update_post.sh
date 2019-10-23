@@ -9,7 +9,9 @@
 	sudo rm /boot/cmdline.txt
 	sudo cp /boot/cmdline.txt.pre_fw /boot/cmdline.txt
 	echo '--- adding line to config.txt'
-	sudo sed -i 's|dtparam=pi3-disable-bt|#dtparam=pi3-disable-bt|' /boot/config.txt
+	sudo rm /boot/config.txt
+	sudo cp /boot/config.txt.pre_fw /boot/config.txt
+	# sudo sed -i 's|dtparam=pi3-disable-bt|#dtparam=pi3-disable-bt|' /boot/config.txt
 	echo '--- enabling hciuart'
 	sudo systemctl enable hciuart
 	echo '--- enabling serial'

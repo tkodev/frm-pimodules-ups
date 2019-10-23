@@ -38,6 +38,6 @@
   echo '--- installing & enabling daemon'
   (cd ../code/python/package && sudo python setup.py install)
   (cd ../code/python/upspico/picofssd && sudo python setup.py install)
-  sudo systemctl enable picofssd.service
+  (cd ../code/python/upspico/picofssd && sudo systemctl enable picofssd.service)
   echo '--- all done'
   exit 0
