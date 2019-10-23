@@ -5,6 +5,17 @@
   set -e
 
 # main
+	echo '--- restoring pre_fw files if exists'
+	if [ -f "/boot/cmdline.txt.pre_fw" ]; then
+		sudo rm /boot/cmdline.txt
+		sudo cp /boot/cmdline.txt.pre_fw /boot/cmdline.txt
+		sudo rm /boot/cmdline.txt.pre_fw
+	fi
+	if [ -f "/boot/config.txt.pre_fw" ]; then
+		sudo rm /boot/config.txt
+		sudo cp /boot/config.txt.pre_fw /boot/config.txt
+		sudo rm /boot/config.txt.pre_fw
+	fi
 	echo '--- save and edit cmdline.txt'
 	sudo cp /boot/cmdline.txt /boot/cmdline.txt.pre_fw
 	sudo sed -i 's| console=ttyAMA0,115200||' /boot/cmdline.txt

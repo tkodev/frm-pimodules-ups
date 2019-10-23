@@ -5,13 +5,17 @@
   set -e
 
 # main
-	echo '--- save and edit cmdline.txt'
-	sudo rm /boot/cmdline.txt
-	sudo cp /boot/cmdline.txt.pre_fw /boot/cmdline.txt
-	echo '--- adding line to config.txt'
-	sudo rm /boot/config.txt
-	sudo cp /boot/config.txt.pre_fw /boot/config.txt
-	# sudo sed -i 's|dtparam=pi3-disable-bt|#dtparam=pi3-disable-bt|' /boot/config.txt
+	echo '--- restoring pre_fw files if exists'
+	if [ -f "/boot/cmdline.txt.pre_fw" ]; then
+		sudo rm /boot/cmdline.txt
+		sudo cp /boot/cmdline.txt.pre_fw /boot/cmdline.txt
+		sudo rm /boot/cmdline.txt.pre_fw
+	fi
+	if [ -f "/boot/config.txt.pre_fw" ]; then
+		sudo rm /boot/config.txt
+		sudo cp /boot/config.txt.pre_fw /boot/config.txt
+		sudo rm /boot/config.txt.pre_fw
+	fi
 	echo '--- enabling hciuart'
 	sudo systemctl enable hciuart
 	echo '--- enabling serial'
