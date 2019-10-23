@@ -25,6 +25,7 @@
   sudo systemctl enable serial-getty@ttyAMA0.service
   sudo systemctl start serial-getty@ttyS0.service
   sudo systemctl enable serial-getty@ttyS0.service
+  sudo systemctl start picofssd.service
   echo '--- all done, rebooting'
   sudo reboot
   exit 0

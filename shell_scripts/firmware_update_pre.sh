@@ -28,6 +28,7 @@
   echo '--- disabling hciuart'
   sudo systemctl disable hciuart
   echo '--- disabling serial'
+  sudo systemctl stop picofssd.service
   sudo systemctl stop serial-getty@ttyAMA0.service
   sudo systemctl disable serial-getty@ttyAMA0.service
   sudo systemctl stop serial-getty@ttyS0.service
